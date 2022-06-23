@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../../../static/css/common.css">
+    <style>
+      aside {
+        width: 300px;
+        margin-right: 1em;
+        border: 1px solid #ccc;
+      }
+      article, section {
+        height: 100%;
+      }
+      section {
+        padding: 1em 0;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body class="c-flex x">
+    <aside>
+      <ol>
+        <li><a href="#p1">数据类型</li>
+        <li><a href="#p2">原型链与this</a></li>
+      </ol>
+    </aside>
+    <main class="c-flex-fill">
+      <article>
+        <section id="p1">
+          <h2>基本数据类型:</h2>
+          <p>String, Number, Boolean, Undefined, Null, Symbol, Bigint</p>
+          <hr>
+          
+          <h2>引用数据类型</h2>
+          <p>Object, Array, Function</p>
+          <hr>
+          
+          <h2>存储方式</h2>
+          <p>基本类型的值存放在栈内存（Stack）里。栈内存中包括了变量的标识符和变量的值。如图：</p>
+          <p><img src="../../../static/imgs/js_normal_data_type.png" alt=""></p>
+          <p>引用类型的值保存在堆内存（Heap）中。变量标识符和指向堆内存中的指针保存在栈内存中。如图：</p>
+          <p><img src="../../../static/imgs/js_object_data_type.png" alt=""></p>
+          
+          <h2>小结</h2>
+          <p>从以上图解可以看出，对已初始化过的 基本类型变量 进行赋值操作，值会被覆写，类型也有可能会改变。例如：</p>
+          <code>
+            var a = 1; // 此时 a 类型为 Number，值为 1 <br>
+            a = 'Hello'; // 重新赋值，此时 a 类型为 String，值也变了。
+          </code>
+          <p>将已初始化赋值过的 引用类型变量 直接赋值给 另一变量，只是在栈内存中拷贝了一份同样的指针，指向同一个堆内存。</p>
+        </section>
+        
+        <section id="p2"></section>
+      </article>
+    </main>
+  </body>
+</html>

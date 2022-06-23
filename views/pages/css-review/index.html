@@ -5,17 +5,10 @@
     <title></title>
     <link rel="stylesheet" href="../../../static/css/common.css">
     <style>
-      body {
-        display: flex;
-      }
       aside {
         width: 300px;
         margin-right: 1em;
         border: 1px solid #ccc;
-      }
-      main {
-        flex: 1;
-        overflow: hidden;
       }
       article, section {
         height: 100%;
@@ -26,14 +19,14 @@
       }
     </style>
   </head>
-  <body>
+  <body class="c-flex x">
     <aside>
       <ol>
         <li><a href="#p1">选择器优先级</li>
         <li><a href="#p2">常用布局</a></li>
       </ol>
     </aside>
-    <main>
+    <main class="c-flex-fill">
       <article>
         <section id="p1">
           <h2>选择器优先级（由低往高排）</h2>

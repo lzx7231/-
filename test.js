@@ -8,7 +8,8 @@ new Vue({
     return {
       ctxUrl: '',
       navList: [
-        { title: '复习·CSS篇', url: 'views/pages/css-review/index.html' }
+        { title: '复习·CSS篇', url: 'views/pages/css-review/index.html' },
+        { title: '复习·JS篇', url: 'views/pages/js-review/index.html' },
       ]
     }
   },
