@@ -1,0 +1,73 @@
+@import url(reset.css);
+[v-cloak] {
+  display: none;
+}
+.c-h100 {
+  height: 100%;
+}
+.c-ell {
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.c-flex,
+.c-flex.x {
+  display: flex;
+}
+.c-flex.y {
+  flex-direction: column;
+}
+.c-flex.wrap {
+  flex-wrap: wrap;
+}
+.c-flex.jcsa {
+  justify-content: space-around;
+}
+.c-flex.jcsb {
+  justify-content: space-between;
+}
+.c-flex.jcc {
+  justify-content: center;
+}
+.c-flex.aic {
+  align-items: center;
+}
+.c-flex-fill {
+  flex: var(--flex, 1);
+  overflow: hidden;
+}
+.c-clear::after {
+  content: '';
+  clear: both;
+}
+.c-tip {
+  position: relative;
+}
+.c-tip:hover .cell::before {
+  position: absolute;
+  max-width: inherit;
+  left: 0;
+  content: attr(data-title);
+  display: inline-flex;
+  transform: translateY(-100%);
+  background-color: rgba(0,0,0,.46);
+}
+.c-tabs {
+  height: 100%;
+  display: inline-flex;
+  font-size: .04rem;
+}
+.c-tabs .c-tab-item {
+  padding: 0 1em;
+  color: #fff;
+  background-color: rgba(79, 158, 253, .2);
+  cursor: pointer;
+  margin-left: .5em;
+}
+.c-tabs .c-tab-item:nth-of-type(1) {
+  margin-left: 0;
+}
+.c-tabs .c-tab-item.active {
+  background-color: #4f9efd;
+}

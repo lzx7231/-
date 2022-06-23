@@ -1,0 +1,41 @@
+/* 
+  【switch 切换】 <input class="btn-on-off" type="checkbox" @change="toggleOnOff" />
+ */
+input[type="checkbox"].btn-on-off {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: .1em .24em;
+  border-radius: 1em;
+  background-color: #ccc;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+input[type="checkbox"].btn-on-off::before {
+  content: '';
+  height: 1em;
+  width: 1em;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: .1em;
+  transition: transform 80ms linear;
+}
+
+input[type="checkbox"].btn-on-off::after {
+  content: '开 关';
+  font-size: .75em;
+  text-align: center;
+}
+
+input[type="checkbox"].btn-on-off:checked {
+  background-color: #0099FF;
+}
+
+input[type="checkbox"].btn-on-off:checked::before {
+  transform: translateX(100%);
+}

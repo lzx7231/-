@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>Test Page</title>
+		<style>
+			#app { height: 100%; width: 100%; }
+      #app > header {
+        box-shadow: 0 0 8px #ccc;
+        padding: 0 1em;
+      }
+      #app > main {
+      }
+      .navbar {
+        height: 72px;
+      }
+      .navbar > * {
+        display: inline-block;
+        border: 1px solid #ccc;
+        padding: .5em;
+      }
+      .navbar > *:hover {
+        cursor: pointer;
+        background-color: antiquewhite;
+      }
+		</style>
+		
+    <link rel="stylesheet" href="static/css/el-reset.css">
+    <link rel="stylesheet" href="static/css/common.css">
+		<!-- <link rel="stylesheet" href="static/css/test.css"> -->
+		
+		<script src="lib/axios.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="lib/vue.js" type="text/javascript" charset="utf-8"></script>
+    
+    <!-- 引入 Echart 图表库 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script> -->
+    
+    <!-- 引入 element-ui -->
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    
+	</head>
+  
+	<body>
+		<div id="app" class="c-flex y" v-cloak>
+      <header>
+        <nav class="navbar c-flex aic">
+          <span v-for="opt in navList" :key="opt.title" @click.self="navTo(opt)">{{ opt.title }}</span>
+        </nav>
+      </header>
+      <main class="c-flex-fill">
+        <iframe :src="ctxUrl" frameborder="0"></iframe>
+      </main>
+    </div>
+	</body>
+  <script type="module" src="test.js" type="text/javascript" charset="utf-8"></script>
+</html>

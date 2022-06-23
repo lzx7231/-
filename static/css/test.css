@@ -1,0 +1,253 @@
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+  border-radius: 10px;
+  background-color: #184b89;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #228dd0;
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-track {
+  background-color: #184b89;
+  border-radius: 10px;
+}
+#app {
+  position: relative;
+}
+
+ul {
+  list-style: none;
+}
+
+.p-e {
+  float: left;
+  overflow: hidden;
+  display: flex;
+}
+
+.display-banner {
+  display: flex;
+  margin-bottom: .020rem;
+  color: #CBDDFF;
+  border: 1px solid rgba(79, 158, 253, 0.3);
+}
+
+.display-banner__icon {
+  width: 0.16rem;
+  height: 0.16rem;
+  /* background: rgba(0, 234, 156, 0.5); */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-banner__text {
+  /* flex: 1; */
+  overflow: hidden;
+  padding-left: 2em;
+  font-size: 0.036rem;
+  font-weight: bold;
+  line-height: 2;
+  /* background: linear-gradient(270deg, rgba(0, 234, 156, 0.03) 0%, rgba(0, 234, 156, 0.24) 100%, rgba(0, 234, 156, 0.24) 100%); */
+}
+
+.display-banner__text>span {
+  margin-right: 0.06rem;
+}
+
+.page-section {
+  font-weight: bold;
+  padding: .052rem .060rem 0;
+  height: 1.76rem;
+  /* background: rgba(2, 15, 43, 0.7); */
+  background: #081b33;
+  float: left;
+  margin-right: .040rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-section__content {
+  flex: 1;
+  overflow: auto;
+}
+
+.part {
+  margin-bottom: .032rem;
+  color: #CBDDFF;
+}
+
+.page-section__title {
+  color: #EFF5FF;
+  display: flex;
+  align-items: center;
+}
+
+.page-section__title.has-pre::before {
+  content: '';
+  position: relative;
+  top: 0;
+  left: -.060rem;
+  display: inline-flex;
+  width: 4px;
+  height: 0.06rem;
+  background-color: #4F9EFD;
+}
+
+.page-section__title.level-1 {
+  font-size: 0.064rem;
+  margin-bottom: .020rem;
+}
+
+.page-section__title.level-2 {
+  font-size: 0.048rem;
+  margin-bottom: .020rem;
+}
+
+ul.box-wrapper {
+  display: grid;
+  grid-column-gap: .040rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+ul.box-wrapper .box {
+  padding: 0 .040rem .02rem;
+  font-size: .036rem;
+}
+
+ul.box-wrapper .box>.value {
+  font-weight: bold;
+}
+
+ul.box-wrapper .box>.value>.num {
+  font-size: 2em;
+}
+
+ul.box-wrapper .box>.label {
+  color: #CBDDFF;
+}
+
+ul.table-and-chart {
+  display: grid;
+  grid-template-rows: repeat(2, MinMax(auto, 50%));
+  grid-template-columns: repeat(2, MinMax(auto, 50%));
+  grid-gap: .020rem .032rem;
+}
+
+.table-and-chart>:nth-child(n) {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+ul.percentage-list {
+  font-weight: bold;
+  color: #CBDDFF;
+}
+
+ul.percentage-list .row {
+  line-height: .084rem;
+}
+
+ul.percentage-list .cell {
+  min-width: 100%;
+  text-align: inherit;
+  font-size: 0.036rem;
+}
+
+ul.percentage-list .header {
+  display: flex;
+}
+
+ul.percentage-list .header>:nth-child(n),
+ul.percentage-list .content .row>:nth-child(n) {
+  flex: 1;
+  overflow: hidden;
+  padding: 0 .4em;
+  text-align: center;
+}
+
+.popup-model {
+  position: relative;
+  background: url(../imgs/pop-ups_box.png) no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.popup-model__btn-close {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  display: inline-flex;
+  padding: .5em;
+  font-size: 1.25em;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(79, 158, 253, 0.24);
+}
+
+.popup-model__btn-close:hover {
+  background: rgba(0, 0, 0, .7);
+}
+
+.model {
+  padding: .040rem 0.08rem .060rem;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.model-title {
+  color: #fff;
+  font-size: .064rem;
+  padding: .5em 0;
+  display: flex;
+  line-height: 1;
+}
+
+.model-title__slot {
+  margin-left: 1em;
+  display: inline-flex;
+  align-items: center;
+  list-style: none;
+}
+
+.model-title__slot .btn {
+  background: rgba(0, 233, 234, 0.2);
+  border-radius: 4px;
+  border: 2px solid #00E9EA;
+  font-size: .040rem;
+  margin-right: 1em;
+  padding: .35em;
+  cursor: pointer;
+}
+
+.model-content {
+  background: rgba(2, 8, 20, 0.6);
+  border: 2px solid rgba(79, 158, 253, 0.4);
+  flex: 1;
+  overflow: hidden;
+  padding: 1em;
+}
+
+.custom-legend {
+  list-style: none;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-legend-item {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.custom-legend-item__icon {
+  width: 0.02rem;
+  height: 0.02rem;
+  border-radius: 50%;
+  margin-right: .5em;
+}
+

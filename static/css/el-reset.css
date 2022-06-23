@@ -1,0 +1,210 @@
+.el-progress-bar__outer {
+  background: #122C52;
+}
+.el-table {
+  font-size: 1.25em;
+}
+.el-table *.is-left {
+  text-align: left;
+}
+.el-table *.is-center {
+  text-align: center;
+}
+.el-table *.is-right {
+  text-align: right;
+}
+.el-table colgroup > th[name="gutter"] {
+  width: 8px; /* 对应滚动条高度 */
+}
+.el-table,
+.el-table::before,
+.el-table tr,
+.el-table tr > td {
+  background: transparent;
+  color: #fff;
+}
+
+.el-table th {
+  line-height: 1;
+  background: rgba(255, 255, 255, .2);
+}
+.el-table .cell {
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: .084rem;
+}
+.el-table th,
+.el-table tr > td {
+  padding-top: 0;
+  padding-bottom: 0;
+  border-bottom: 4px solid rgba(2, 8, 20, 0.6);
+}
+
+.el-table tr.el-table__row {
+  background: rgba(255, 255, 255, .04);
+}
+.el-table tr.el-table__row.current-row {
+  background: rgba(79, 158, 253, .5);
+}
+
+.el-table tr.el-table__row--striped {
+  background: rgba(255, 255, 255, .08);
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover>td {
+  background: rgba(79, 158, 253, 0.24);
+}
+
+.menu-tree {
+  transition: all .5s linear;
+}
+
+.menu-tree[is-collapse] {
+  box-shadow: 0 0 8px #666;
+}
+
+.menu-tree .el-tree-node__expand-icon {
+  display: none
+}
+
+.menu-tree .el-tree-node__content.active-p {
+  background-color: coral;
+}
+
+.menu-tree .el-tree-node__content {
+  color: #666;
+}
+
+.menu-tree .el-tree-node__content:hover {
+  background-color: transparent;
+}
+
+.menu-tree .el-tree>.el-tree-node>.el-tree-node__content {
+  height: 50px;
+  align-items: initial;
+}
+
+.menu-tree .el-tree-node__children .el-tree-node__content {
+  padding: .5em 0;
+  height: auto;
+}
+
+.menu-tree .el-tree-node:focus>.el-tree-node__content {
+  background-color: transparent;
+}
+
+.menu-tree .custom-tree-node {
+  position: relative;
+  padding: 0 1em;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  transition: all .2s linear;
+}
+
+.menu-tree .custom-tree-node__icon--prefix {
+  margin-right: 5px;
+}
+
+.menu-tree .custom-tree-node__icon--prefix svg {
+  max-width: 1em;
+  max-height: 1em;
+  overflow: hidden;
+}
+
+.menu-tree .custom-tree-node__icon--suffix {
+  display: block;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-tree .custom-tree-node.active-p {
+  background-color: #0099FF;
+  color: #fff;
+}
+
+.menu-tree .custom-tree-node.active-c {
+  color: cornflowerblue;
+}
+
+.menu-tree .custom-tree-node.active-lev {
+  color: coral;
+}
+
+.menu-tree .el-tree-node.is-expanded>.el-tree-node__children {
+  padding-bottom: .25em;
+}
+
+.menu-tree .el-tree-node.is-expanded>.el-tree-node__content {
+  background-color: #cbddff;
+}
+
+.el-dialog {
+  border-radius: 10px;
+}
+
+.el-dialog__header {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 1em;
+}
+
+.el-dialog__headerbtn {
+  font-size: 1.25em;
+  line-height: 1.25;
+}
+
+.dialog-btn__inserted {
+  color: #909399;
+  margin-right: .25em;
+}
+
+.dialog-btn__inserted:hover {
+  color: #409eff;
+  cursor: pointer;
+}
+
+.el-radio {
+  color: #fff;
+}
+
+.el-radio__label {
+  font-size: 1.5em;
+  vertical-align: bottom;
+}
+
+
+.el-date-editor {
+  min-width: 100%;
+  background: transparent;
+  border: none;
+  /* height: 0.272rem; */
+}
+
+.el-date-editor * {
+  color: #fff !important;
+}
+
+.el-date-editor .el-range-input {
+  border: 1px solid #409EFF;
+  background: transparent;
+  border-radius: 4px;
+  font-size: .048rem;
+}
+
+.el-date-editor .el-range__icon {
+  font-size: 1.8em;
+  width: auto;
+  margin-right: .4em;
+}
