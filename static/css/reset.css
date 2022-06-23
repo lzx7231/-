@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-*[style*="overflow: auto"] {
-  content-visibility: auto;
-}
-
 html,
 body {
   height: 100%;
@@ -16,6 +12,7 @@ body {
 
 body {
   margin: 0;
+  min-width: 1200px;
 }
 
 iframe {

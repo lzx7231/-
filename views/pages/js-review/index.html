@@ -7,14 +7,13 @@
     <style>
       aside {
         width: 300px;
-        margin-right: 1em;
         border: 1px solid #ccc;
       }
       article, section {
         height: 100%;
       }
       section {
-        padding: 1em 0;
+        padding: 1em;
         overflow: auto;
       }
     </style>
@@ -23,18 +22,30 @@
     <aside>
       <ol>
         <li><a href="#p1">数据类型</li>
-        <li><a href="#p2">原型链与this</a></li>
+        <li><a href="#p2">对象深拷贝与浅拷贝</li>
+        <li><a href="#p3">原型链与this指向</a></li>
       </ol>
     </aside>
     <main class="c-flex-fill">
       <article>
         <section id="p1">
           <h2>基本数据类型:</h2>
-          <p>String, Number, Boolean, Undefined, Null, Symbol, Bigint</p>
+          <ul>
+            <li>String</li>
+            <li>Number</li>
+            <li>Boolean</li>
+            <li>Undefined</li>
+            <li>Null</li>
+            <li>Bigint</li>
+          </ul>
           <hr>
           
           <h2>引用数据类型</h2>
-          <p>Object, Array, Function</p>
+          <ul>
+            <li>Object</li>
+            <li>Array</li>
+            <li>Function</li>
+          </ul>
           <hr>
           
           <h2>存储方式</h2>
@@ -50,9 +61,22 @@
             a = 'Hello'; // 重新赋值，此时 a 类型为 String，值也变了。
           </code>
           <p>将已初始化赋值过的 引用类型变量 直接赋值给 另一变量，只是在栈内存中拷贝了一份同样的指针，指向同一个堆内存。</p>
+          <p>这就是所谓的 <mark>浅拷贝</mark>。后面我们还会讲到 <mark>深拷贝</mark>。</p>
         </section>
         
-        <section id="p2"></section>
+        <section id="p2">
+          <h2>浅拷贝</h2>
+          <hr>
+          
+          <h2>深拷贝</h2>
+        </section>
+        
+        <section id="p3">
+          <h2>什么是原型</h2>
+          <hr>
+          
+          <h2>原型继承</h2>
+        </section>
       </article>
     </main>
   </body>
