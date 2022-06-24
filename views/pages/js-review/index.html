@@ -66,9 +66,107 @@
         
         <section id="p2">
           <h2>浅拷贝</h2>
+          <p>针对 <mark>引用数据类型</mark> 而言（一般指数组和对象的拷贝）。个人通俗理解，指的是，直接将一个引用类型变量赋值给另一个变量。以下通过几个常用场景来分析。</p>
+          <ol>
+            <li>
+              <p>拷贝数组</p>
+              <code>
+                var arr1 = [1, 2, 3, 'Lin']; <br>
+                var arr2 = arr1; <br>
+                arr2[0] = 0; <br>
+                console.log(arr1); // ---> [0, 2, 3, 'Lin'] <br>
+                console.log(arr2); // ---> [0, 2, 3, 'Lin']
+              </code>
+            </li>
+            <li>
+              <p>拷贝对象</p>
+              <code>
+                var opt1 = { name: 'Lin', age: 25 }; <br>
+                var opt2 = opt1; <br>
+                opt2.name = 'Chen' <br>
+                console.log(opt1) // ---> {name: 'Chen', age: 25} <br>
+                console.log(opt2) // ---> {name: 'Chen', age: 25}
+              </code>
+            </li>
+          </ol>
+          <p>可以看出，直接将一个引用类型变量赋值给另一个变量，其中一个变量变了，另一个也会同步变更。</p>
+          <p>这是为什么呢，参考上一节的引用类型存储方式图解可以知道，引用类型变量直接赋值给另一个变量，两个变量指向值存放的堆内存的指针是一样的。所以，修改值，两个同时受影响。</p>
+          <p>这里给出一道小测试，加深理解。</p>
+          <code>
+            var opt1 = { name: 'Lin', age: 25, hobby: ['sing', 'dance'] }; <br>
+            var opt2 = { ...opt1 }; // ... 是ES6展开符 <br>
+            opt2.name = 'Chen' <br>
+            opt2.hobby.push('rap') <br>
+            console.log(opt1) <br>
+            console.log(opt2)
+          </code>
+          <p>分析下，上面代码在控制台分别输出什么？下面揭晓答案。</p>
+          <code>
+            console.log(opt1) // ---> {name: 'Lin', age: 25, hobby: ['sing', 'dance', 'rap']]} <br>
+            console.log(opt2) // ---> {name: 'Chen', age: 25, hobby: ['sing', 'dance', 'rap']]}
+          </code>
+          <p>咋一看会显得有点奇怪。没关系，分解下代码就很好理解了。</p>
+          <code>
+            var opt2 = { ...opt1 } <br><br>
+            等价于 <br><br>
+            var opt2 = {} // 注意，这一步 opt2 是一个空的对象，与 opt1 暂无关联 <br>
+            opt2.name = opt1.name // 基本类型赋值，即 opt2.name = 'Lin' <br>
+            opt2.age = opt1.age // 基本类型赋值，即 opt2.age = 25 <br>
+            opt2.hobby = opt1.hobby // 引用类型赋值，即 opt1.hobby 与 opt2.hobby 的指针指向一致。
+          </code>
+          <p>通过以上代码分解，结合上一节数据类型的存储方式，接着看下面的代码：</p>
+          <code>
+            opt2.name = 'Chen' // opt2.name 的值由 “Lin” 直接修改为 “Chen”，与 opt1.name 无关联、不影响。 <br>
+            opt2.hobby.push('rap') // 往 opt2.hobby 的指针所指向的值（数组）中添加一个 “rap” 字符串，有相同指针指向的变量（即 opt1.hobby）也会同步变更。
+          </code>
+          <br>
+          <h3>小结</h3>
+          <p>所以，浅拷贝的核心在于：赋值操作时，等号的右边变量是引用类型，则赋值完成后，同一个值绑定两个变量，修改值操作也会影响到与之绑定的变量。这种赋值即为浅拷贝。</p>
           <hr>
           
           <h2>深拷贝</h2>
+          <p>同样是针对 <mark>引用数据类型</mark> 而言（一般指数组和对象的拷贝）。指的是，将一个引用类型变量的值一一分解，给另一个变量一一对应赋值（不规范的说法，仅个人理解）。还是通过几个常用场景来分析。</p>
+          <code>
+            var obj1 = { <br>
+              &nbsp;x: 1, <br>
+              &nbsp;y: 2, <br>
+              &nbsp;z: 3 <br>
+            } <br>
+            var obj2 = {} <br>
+            for (key in obj1) { <br>
+              &nbsp;obj2[key] = obj1[key] <br>
+            } <br>
+            console.log(obj2) // ---> {x: 1, y: 2, z: 3} <br>
+            obj2.x = 0 <br>
+            obj2.y = 0 <br>
+            obj2.z = 0 <br>
+            console.log(obj1) // ---> {x: 1, y: 2, z: 3} <br>
+            console.log(obj2) // ---> {x: 0, y: 0, z: 0} <br>
+          </code>
+          <p>以上就是最简单的一个深拷贝情形。这个情形比较好理解“一一分解，一一赋值”</p>
+          <p>进一步理解，我们把 obj1 稍微改变下，再实现深拷贝：</p>
+          <code>
+            var obj1 = { <br>
+              &nbsp;x: 1, <br>
+              &nbsp;y: 2, <br>
+              &nbsp;z: { value: 3 } <br>
+            } <br>
+            function fnDeepCopy (val) { <br>
+              &nbsp;let copy = {} <br>
+              &nbsp;for (let key in val) {<br>
+                &nbsp;&nbsp;copy[key] = typeof val[key] === 'object' ? fnDeepCopy(val[key]) : val[key]<br>
+              &nbsp;} <br>
+              &nbsp;return copy <br>
+            } <br>
+            var obj2 = fnDeepCopy(obj1) <br>
+            obj2.z.value = 0 <br>
+            console.log(obj1) // ---> {x: 1, y: 2, z: { value: 3 }} <br>
+            console.log(obj2) // ---> {x: 0, y: 0, z: { value: 0 }} <br>
+          </code>
+          <br>
+          <h3>小结</h3>
+          <p>所以，深拷贝的核心在于：每一次赋值操作时，等号的右边变量如果是引用数据类型，需对该变量的值一一分解，然后创建一个同类型的空内容变量（等号右边是数组，则创建空数组[], 等号右边是对象，则创建空对象{}），把一一分解出来的值放到该空内容变量里，然后再赋值给等号左边。</p>
+          <p>说得那么拗口，简单理解就是，不直接把引用类型的变量直接赋值给另一个变量。引用类型的变量需要进一步处理。确保每一次赋值操作，右边的变量都为基本数据类型。即可实现深拷贝。</p>
         </section>
         
         <section id="p3">
